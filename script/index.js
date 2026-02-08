@@ -1,5 +1,5 @@
 // CONFIGURACIÓN DE PRUEBA: 7 de Febrero 2026, 22:35:00 Hora Perú (UTC-5)
-const fechaObjetivo = new Date("2026-02-07T22:55:00-05:00").getTime();
+const fechaObjetivo = new Date("2026-02-07T23:02:00-05:00").getTime();
 
 const interval = setInterval(() => {
     const ahora = new Date().getTime();
