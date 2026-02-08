@@ -1,0 +1,399 @@
+[
+    {
+        "id": "saga-inicios",
+        "title": "Donde todo cobró sentido",
+        "cards": [
+            {
+                "key": "afterPicnic",
+                "img": "/media/DondeTodoCobraSentido/caminataPicnic.jpeg",
+                "alt": "selfie despues de picnic",
+                "info": "volviendo del Parque Maria Reiche"
+            },
+            {
+                "key": "CarritoChocones",
+                "img": "/media/DondeTodoCobraSentido/PortadaPrimeraSalida.jpeg",
+                "alt": "Primera foto en los carritos chocones",
+                "info": "Primera salida en Happiland"
+            },
+            {
+                "key": "Picnic",
+                "img": "/media/DondeTodoCobraSentido/picnic.jpeg",
+                "alt": "foto tuya del picnic",
+                "info": "durante el Picnic"
+            },
+            {
+                "key": "sesy",
+                "img": "/media/DondeTodoCobraSentido/sesy.jpeg",
+                "alt": "Foto sesy con gorrita de perrito",
+                "info": "sesy con gorrita de perrito"
+            },
+            {
+                "key": "1aniver",
+                "img": "/media/DondeTodoCobraSentido/1aniver.jpg",
+                "alt": "foto del 1 aniversario en el Parque bicentenario",
+                "info": "1 aniversario"
+            },
+            {
+                "key": "primeros_dias",
+                "img": "/media/DondeTodoCobraSentido/primeros_dias.jpeg",
+                "alt": "dibujo de yo en el paradero de Zoologico",
+                "info": "paradero zoologico"
+            },
+            {
+                "key": "mambo_mireyna",
+                "img": "/media/DondeTodoCobraSentido/mambo.jpeg",
+                "alt": "mambo y mireyna",
+                "info": "mambo y mireyna"
+            },
+            {
+                "key": "afterDentist",
+                "img": "/media/DondeTodoCobraSentido/despuesDentista.jpeg",
+                "alt": "selfie en real plaza deespues de mi cita al dentista",
+                "info": "foto despues de mi cita al dentista"
+            },
+            {
+                "key": "casino",
+                "img": "/media/DondeTodoCobraSentido/casino.jpg",
+                "alt": "foto en el casino",
+                "info": "casino"
+            },
+            {
+                "key": "primera_selfie",
+                "img": "/media/DondeTodoCobraSentido/happyland.jpeg",
+                "alt": "primera selfie",
+                "info": "primera selfie"
+            }
+        ]
+    },
+    {
+        "id": "saga-risas",
+        "title": "Tus carcajadas, mi sonido favorito",
+        "cards": [
+            {
+                "key": "posePicnic",
+                "img": "/media/Carcajadas/pose.jpeg",
+                "alt": "pose en el picnic",
+                "info": "pose en el picnic"
+            },
+            {
+                "key": "RisBesoFances",
+                "img": "/media/Carcajadas/carcajada1.jpg",
+                "alt": "risa comiendo beso fances en el jokey",
+                "info": "risa beso fances"
+            },
+            {
+                "key": "cinabom",
+                "img": "/media/Carcajadas/cinabom.jpeg",
+                "alt": "cinabom",
+                "info": "cinabom"
+            },
+            {
+                "key": "selfie_perrito_dolarcity",
+                "img": "/media/Carcajadas/dolarcity.jpeg",
+                "alt": "selfie con perrito en dolarcity",
+                "info": "selfie con perrito en dolarcity"
+            },
+            {
+                "key": "selfie_scrub",
+                "img": "/media/Carcajadas/amoFoto.jpeg",
+                "alt": "selfie con tu scrub",
+                "info": "selfie con tu scrub"
+            },
+            {
+                "key": "universitaria",
+                "img": "/media/Carcajadas/universitaria.jpeg",
+                "alt": "selfie universitaria",
+                "info": "selfie universitaria"
+            },
+            {
+                "key": "selfie_7sopas",
+                "img": "/media/Carcajadas/7sopas.jpeg",
+                "alt": "comiendo en 7 sopas",
+                "info": "comiendo en 7 sopas"
+            },
+            {
+                "key": "conLentes",
+                "img": "/media/Carcajadas/memuero.jpeg",
+                "alt": "selfie con lentes",
+                "info": "selfie con lentes"
+            },
+            {
+                "key": "leña",
+                "img": "/media/Carcajadas/leña.jpeg",
+                "alt": "despues de leña y carbon",
+                "info": "despues de leña y carbon"
+            },
+            {
+                "key": "enSantaClara",
+                "img": "/media/Carcajadas/santaClara.jpeg",
+                "alt": "en santa clara",
+                "info": "en santa clara"
+            }
+        ]
+    },
+    {
+        "id": "saga-viajes",
+        "title": "Dibujando mapas juntos",
+        "cards": [
+            {
+                "key": "viajeSanMateo",
+                "img": "/media/mapa/soloella.jpeg",
+                "alt": "viaje a San Mateo",
+                "info": "viaje a San Mateo"
+            },
+            {
+                "key": "enAmistad",
+                "img": "/media/mapa/soloyo.jpeg",
+                "alt": "en el parque de la amistad",
+                "info": "en amistad"
+            },
+            {
+                "key": "fotoJuntosSanMateo",
+                "img": "/media/mapa/Distraido.jpeg",
+                "alt": "selfie en San Mateo",
+                "info": "selfie en San Mateo"
+            },
+            {
+                "key": "enLaPlaya",
+                "img": "/media/mapa/Playita.jpeg",
+                "alt": "en la playa",
+                "info": "en la playa"
+            },
+            {
+                "key": "amanecida",
+                "img": "/media/mapa/Amanecida.jpeg",
+                "alt": "selfie amanecida rumbo a San Mateo",
+                "info": "selfie amanecida rumbo a San Mateo"
+            },
+            {
+                "key": "manoSanMateo",
+                "img": "/media/mapa/manoSanMateo.jpeg",
+                "alt": "foto en la mano de San Mateo juntos",
+                "info": "foto en la mano de San Mateo juntos"
+            },
+            {
+                "key": "selfiePlaya",
+                "img": "/media/mapa/Playajuntos.jpeg",
+                "alt": "selfie en la playa",
+                "info": "selfie en la playa"
+            },
+            {
+                "key": "primeraVezHH",
+                "img": "/media/mapa/primeraVezHH.jpg",
+                "alt": "foto llendo por primera vez a HH",
+                "info": "foto llendo por primera vez a HH"
+            },
+            {
+                "key": "yoCapibara",
+                "img": "/media/mapa/yoCapibara.jpeg",
+                "alt": "yo capibara",
+                "info": "con mi amigo capibara"
+            },
+            {
+                "key": "parqueAmistad",
+                "img": "/media/mapa/parqueAmistad.jpeg",
+                "alt": "parque de la amistad",
+                "info": "parque de la amistad"
+            }
+        ]
+    },
+    {
+        "id": "saga-comida",
+        "title": "Instantes que saben a gloria",
+        "cards": [
+            {
+                "key": "cocinandoCinaboom",
+                "img": "/media/InstantesSabrosos/cinabom.jpeg",
+                "alt": "cocinando cinaboom",
+                "info": "cocinando cinaboom"
+            },
+            {
+                "key": "desayunoViaje",
+                "img": "/media/InstantesSabrosos/desayunoViaje.jpeg",
+                "alt": "desayuno en viaje a San Mateo",
+                "info": "desayuno en viaje a San Mateo"
+            },
+            {
+                "key": "almuerzoSanMateo",
+                "img": "/media/InstantesSabrosos/almuerzoViaje.jpeg",
+                "alt": "almuerzo en viaje a San Mateo",
+                "info": "almuerzo en viaje a San Mateo"
+            },
+            {
+                "key": "pizz_popeyes",
+                "img": "/media/InstantesSabrosos/pizz_popeyes.jpg",
+                "alt": "comiendo Pizza y Popeyes",
+                "info": "comiendo Pizza y Popeyes"
+            },
+            {
+                "key": "chifa",
+                "img": "/media/InstantesSabrosos/chifa.jpg",
+                "alt": "Comiendo en chifa Fu Lai",
+                "info": "Comiendo en chifa Fu Lai"
+            },
+            {
+                "key": "salchipapa",
+                "img": "/media/InstantesSabrosos/salchipapa.jpg",
+                "alt": "salchipapa en UNFV",
+                "info": "salchipapa en UNFV"
+            },
+            {
+                "key": "playaFood",
+                "img": "/media/InstantesSabrosos/playaFood.jpeg",
+                "alt": "comiendo chicharrones en la playa ",
+                "info": "comiendo chicharrones en la playa"
+            },
+            {
+                "key": "haciendoQueque",
+                "img": "/media/InstantesSabrosos/PreparacionQueque.jpeg",
+                "alt": "haciendo queque juntos",
+                "info": "haciendo queque juntos"
+            },
+            {
+                "key": "collageRamen",
+                "img": "/media/InstantesSabrosos/ramen.jpeg",
+                "alt": "collage Ramen",
+                "info": "collage Ramen"
+            },
+            {
+                "key": "ramen",
+                "img": "/media/InstantesSabrosos/ramen2.jpeg",
+                "alt": "Comiendo Ramen",
+                "info": "Comiendo Ramen"
+            }
+        ]
+    },
+    {
+        "id": "saga-fechas",
+        "title": "Promesas guardadas en el tiempo",
+        "cards": [
+            {
+                "key": "aniversarioMirador",
+                "img": "/media/promesas/comoAmoEstaFoto.jpeg",
+                "alt": "foto en el mirador de Miraflores",
+                "info": "foto en el mirador de Miraflores"
+            },
+            {
+                "key": "feriaLibro",
+                "img": "/media/promesas/feriaLibro.jpeg",
+                "alt": "foto en la Feria del libro",
+                "info": "foto en la Feria del libro"
+            },
+            {
+                "key": "partidoFamiliar",
+                "img": "/media/promesas/partido.jpeg",
+                "alt": "foto en el estadio con la familia Peralta",
+                "info": "foto en el estadio con la familia Peralta"
+            },
+            {
+                "key": "abrazoEstadio",
+                "img": "/media/promesas/partido2.jpeg",
+                "alt": "abrazo en el estadio",
+                "info": "abrazo en el estadio"
+            },
+            {
+                "key": "primerHalloweenMari",
+                "img": "/media/promesas/primerHalloween.jpg",
+                "alt": "foto de Mari Disfrazada de gatita",
+                "info": "foto de Mari Disfrazada de gatita"
+            },
+            {
+                "key": "casaRonald",
+                "img": "/media/promesas/CasaRonald.jpeg",
+                "alt": "foto en la Casa Ronald",
+                "info": "foto en la Casa Ronald"
+            },
+            {
+                "key": "portadaNavidad",
+                "img": "/media/promesas/PortadaNavidad.jpeg",
+                "alt": "Abrazo en su presentacion de canto navideño",
+                "info": "Abrazo en su presentacion de canto navideño"
+            },
+            {
+                "key": "primerCumple",
+                "img": "/media/promesas/1cumple.jpeg",
+                "alt": "foto en el cumple de Mari",
+                "info": "foto en el cumple de Mari"
+            },
+            {
+                "key": "victoriaCantoNavideño",
+                "img": "/media/promesas/Navidad.jpeg",
+                "alt": "foto recibiendo el premio en canto navideño",
+                "info": "foto recibiendo el premio en canto navideño"
+            },
+            {
+                "key": "navidadMari",
+                "img": "/media/promesas/navidaHermosa.jpeg",
+                "alt": "foto de mari con el arbol de navidad",
+                "info": "foto de mari con el arbol de navidad"
+            }
+        ]
+    },
+    {
+        "id": "saga-top",
+        "title": "Top 10: Mejores momentos 🏆",
+        "isTop10": true,
+        "cards": [
+            {
+                "rank": 1,
+                "key": "top1",
+                "img": "/media/bestMoments/primerViaje.jpeg",
+                "alt": "Top 1"
+            },
+            {
+                "rank": 2,
+                "key": "top2",
+                "img": "/media/bestMoments/amo.jpeg",
+                "alt": "Top 2"
+            },
+            {
+                "rank": 3,
+                "key": "top3",
+                "img": "/media/bestMoments/lima.jpeg",
+                "alt": "Top 3"
+            },
+            {
+                "rank": 4,
+                "key": "top4",
+                "img": "/media/bestMoments/cumple.jpeg",
+                "alt": "Top 4"
+            },
+            {
+                "rank": 5,
+                "key": "top5",
+                "img": "/media/bestMoments/NoelShackris.jpeg",
+                "alt": "Top 5"
+            },
+            {
+                "rank": 6,
+                "key": "top6",
+                "img": "/media/bestMoments/picnic.jpeg",
+                "alt": "Top 6"
+            },
+            {
+                "rank": 7,
+                "key": "top7",
+                "img": "/media/bestMoments/peru.jpeg",
+                "alt": "Top 7"
+            },
+            {
+                "rank": 8,
+                "key": "top8",
+                "img": "/media/bestMoments/halloween.jpeg",
+                "alt": "Top 8"
+            },
+            {
+                "rank": 9,
+                "key": "top9",
+                "img": "/media/bestMoments/peques.jpeg",
+                "alt": "Top 9"
+            },
+            {
+                "rank": 10,
+                "key": "top10",
+                "img": "/media/bestMoments/Tiburoncin.jpeg",
+                "alt": "Top 10"
+            }
+        ]
+    }
+]

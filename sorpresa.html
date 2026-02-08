@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SkyFlix - Nuestra Historia</title>
+    <link rel="stylesheet" href="style/netflix-style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+
+<body>
+
+    <nav class="navbar" id="navbar">
+        <div class="nav-left">
+            <div class="logo">SKYFLIX</div>
+            <ul class="nav-links">
+                <li><a href="#saga-inicios">Inicios</a></li>
+                <li><a href="#saga-risas">Risas</a></li>
+                <li><a href="#saga-viajes">Viajes</a></li>
+                <li><a href="#saga-comida">Citas</a></li>
+                <li><a href="#saga-fechas">Especiales</a></li>
+            </ul>
+        </div>
+
+        <div class="nav-right">
+            <i class="fas fa-search icon"></i>
+            <i class="fas fa-bell icon"></i>
+            <div class="user-profile">
+                <img src="media/Perfil/rostro.jpeg" alt="Perfil">
+                <i class="fas fa-caret-down"></i>
+            </div>
+        </div>
+    </nav>
+
+    <header class="hero">
+        <video autoplay loop muted playsinline id="videoBackground" class="hero-video">
+            <source src="media/bestMoments/start.mp4" type="video/mp4">
+            Tu navegador no soporta el video.
+        </video>
+        <div class="hero-content">
+            <h1 class="hero-title">Maricielo: Mi lugar favorito</h1>
+            <p class="hero-description">Hay personas que son destinos; tú eres el mío. Gracias por llenar cada rincón de
+                mi existencia con tu luz y tu alegría.</p>
+            <div class="hero-buttons">
+                <button class="btn-play" id="btnReproducir"><i class="fas fa-play"></i> Reproducir</button>
+            </div>
+        </div>
+    </header>
+
+    <main class="main-container">
+        <div id="detail-panel" class="detail-panel"></div>
+
+        <!-- Container for dynamic sections -->
+        <div id="sections-container"></div>
+    </main>
+
+    <footer style="padding: 40px; text-align: center; color: #808080; font-size: 0.9rem;">
+        <p>© 2026 Skyflix Original. Hecho con ❤️ para Maricielo.</p>
+    </footer>
+
+    <!-- Load data first -->
+    <script src="script/data.js"></script>
+    <script src="script/netflix-script.js"></script>
+</body>
+
+</html>

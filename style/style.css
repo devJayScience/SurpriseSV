@@ -1,0 +1,143 @@
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@400;700&display=swap');
+
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #ffe6eb;
+    font-family: 'Quicksand', sans-serif;
+    color: #ae4e68;
+    overflow: hidden;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.game-container {
+    text-align: center;
+    z-index: 10;
+    pointer-events: auto;
+    /* IMPORTANTE: Ahora permite clics */
+    background: rgba(255, 255, 255, 0.8);
+    padding: 2rem;
+    border-radius: 20px;
+    box-shadow: 0 8px 32px rgba(255, 105, 180, 0.2);
+    backdrop-filter: blur(5px);
+    transition: all 0.5s ease;
+}
+
+.progress-bar-container {
+    width: 200px;
+    height: 15px;
+    background-color: #ffd1dc;
+    border-radius: 10px;
+    margin: 15px auto;
+    overflow: hidden;
+}
+
+.progress-bar {
+    width: 0%;
+    height: 100%;
+    background-color: #ff6b95;
+    transition: width 0.3s ease;
+}
+
+#heart-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+}
+
+.heart-wrapper {
+    position: absolute;
+    top: 0;
+    pointer-events: auto;
+    animation: fall linear forwards;
+    cursor: pointer;
+}
+
+.heart-wrapper:hover {
+    animation-play-state: paused;
+    z-index: 100;
+}
+
+.heart-inner::before {
+    content: '❤️';
+    display: block;
+}
+
+@keyframes fall {
+    0% {
+        transform: translateY(-50px);
+        opacity: 0;
+    }
+
+    10% {
+        opacity: 1;
+    }
+
+    100% {
+        transform: translateY(110vh);
+        opacity: 1;
+    }
+}
+
+/* Estilos de botones finales */
+.btn-si {
+    background-color: #ff4d79;
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 50px;
+    font-size: 1rem;
+    cursor: pointer;
+    font-weight: bold;
+    transition: transform 0.3s ease;
+    box-shadow: 0 5px 15px rgba(233, 30, 99, 0.4);
+}
+
+.btn-no {
+    background-color: #9e9e9e;
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 50px;
+    font-size: 1rem;
+    cursor: pointer;
+    font-weight: bold;
+    transition: all 0.2s ease;
+}
+
+.game-container.won {
+    width: 90%;
+    max-width: 800px;
+    padding: 3rem;
+    transition: all 0.5s ease;
+}
+
+/* Fireworks */
+.firework-particle {
+    position: absolute;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 10001;
+    /* Above everything */
+}
+
+@keyframes explode {
+    0% {
+        transform: translate(0, 0) scale(1);
+        opacity: 1;
+    }
+
+    100% {
+        transform: translate(var(--tx), var(--ty)) scale(0);
+        opacity: 0;
+    }
+}

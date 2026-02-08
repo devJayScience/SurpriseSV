@@ -1,0 +1,462 @@
+:root {
+    --netflix-red: #e50914;
+    --dark-bg: #141414;
+    --card-width: 270px;
+    --card-height: 405px;
+}
+
+body {
+    background-color: var(--dark-bg);
+    color: white;
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+}
+
+/* --- NAVBAR REALISTA --- */
+.navbar {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    padding: 20px 4% 0;
+    height: 80px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.8) 0%, transparent 100%);
+    z-index: 1000;
+    transition: background-color 0.5s ease;
+    box-sizing: border-box;
+}
+
+.nav-left {
+    display: flex;
+    align-items: center;
+    flex-grow: 1;
+}
+
+.logo {
+    color: var(--netflix-red);
+    font-size: 1.8rem;
+    font-weight: 900;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    margin-right: 25px;
+    cursor: pointer;
+}
+
+.nav-links {
+    display: flex;
+    list-style: none;
+    gap: 30px;
+    margin: 0 auto;
+    padding: 0;
+}
+
+.nav-links a {
+    color: #e5e5e5;
+    text-decoration: none;
+    font-size: 0.9rem;
+    font-weight: 500;
+    transition: color 0.3s ease, text-shadow 0.3s ease;
+}
+
+.nav-links a:hover {
+    color: #ffffff;
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+}
+
+/* --- PERFIL Y ACCIONES DERECHA --- */
+.nav-right {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    height: 100%;
+}
+
+.nav-right i {
+    color: white;
+    cursor: pointer;
+    font-size: 1.1rem;
+}
+
+.user-profile {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    cursor: pointer;
+}
+
+.user-profile img {
+    width: 32px;
+    height: 32px;
+    border-radius: 4px;
+    object-fit: cover;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.user-profile .fa-caret-down {
+    color: white;
+    font-size: 0.8rem;
+    transition: transform 0.3s;
+}
+
+/* --- HERO --- */
+.hero {
+    height: 80vh;
+    background: linear-gradient(to right, rgba(20, 20, 20, 0.8) 20%, transparent 70%),
+        linear-gradient(to top, var(--dark-bg) 5%, transparent 30%),
+        url('/media/banner-principal.jpg');
+    background-size: cover;
+    background-position: center center;
+    display: flex;
+    align-items: center;
+    padding: 80px 4% 0;
+
+    position: relative;
+    overflow: hidden;
+    background: #000;
+    /* Fondo de seguridad */
+}
+
+.hero-video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    /* El video llena todo el espacio sin estirarse */
+    z-index: 0;
+}
+
+/* Capa de degradado para que el texto resalte sobre el video */
+.hero::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to right, rgba(20, 20, 20, 0.8) 20%, transparent 70%),
+        linear-gradient(to top, var(--dark-bg) 5%, transparent 30%);
+    z-index: 1;
+    pointer-events: none;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+    /* Asegura que el contenido esté por encima del video y del gradiente */
+    max-width: 600px;
+    /* Ajusta el ancho del texto si es necesario */
+}
+
+.hero-title {
+    font-size: clamp(2.5rem, 8vw, 4.5rem);
+    max-width: 800px;
+    font-weight: 800;
+    color: #fff;
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7);
+}
+
+/* --- CARDS: ZOOM + ENSANCHAMIENTO --- */
+.poster-card {
+    flex: 0 0 var(--card-width) !important;
+    width: var(--card-width) !important;
+    height: var(--card-height) !important;
+    position: relative;
+    cursor: pointer;
+    transition: transform 450ms, flex 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    border-radius: 4px;
+    overflow: hidden;
+}
+
+/* Efecto Zoom al pasar el mouse (solo si NO está expandida) */
+.poster-card:not(.active-card):hover {
+    transform: scale(1.08);
+    z-index: 10;
+}
+
+/* Ensanchamiento */
+.poster-card.active-card {
+    flex: 0 0 calc(var(--card-width) * 2.2) !important;
+    width: calc(var(--card-width) * 2.2) !important;
+    transform: scale(1);
+    z-index: 100;
+}
+
+.poster-card img {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important;
+    display: block;
+}
+
+/* Overlay de comentarios (Corregido) */
+.card-description-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to right, rgba(0, 0, 0, 0.95) 35%, transparent 95%);
+    display: flex;
+    /* Activamos flex */
+    flex-direction: column;
+    justify-content: center;
+    padding: 30px;
+    box-sizing: border-box;
+    z-index: 5;
+    pointer-events: none;
+    opacity: 0;
+    /* Oculto inicialmente */
+    transition: opacity 0.4s ease;
+}
+
+.active-card .card-description-overlay {
+    opacity: 1 !important;
+    /* Forzamos visibilidad */
+    display: flex !important;
+}
+
+.phrase-text {
+    font-size: 1.2rem;
+    line-height: 1.4;
+    color: #fff;
+    max-width: 65%;
+    font-style: italic;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+}
+
+.status-tag {
+    color: var(--netflix-red);
+    font-weight: bold;
+    font-size: 0.8rem;
+    margin-top: 15px;
+    text-transform: uppercase;
+}
+
+/* Ocultar información gris inferior al expandir */
+.active-card .card-info {
+    opacity: 0 !important;
+}
+
+/* --- FLECHAS CON DEGRADADO NEGRO --- */
+.slider-arrow {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    /* Siempre por encima de las cards */
+    cursor: pointer;
+    font-size: 2.5rem;
+    color: white;
+    opacity: 0;
+    transition: all 0.3s ease;
+}
+
+.row-content:hover .slider-arrow {
+    opacity: 1;
+}
+
+.slider-arrow:hover {
+    transform: scale(1.2);
+    color: var(--netflix-red);
+}
+
+.slider-arrow.left {
+    left: 0;
+    background: linear-gradient(to right, rgba(0, 0, 0, 0.9) 0%, transparent 100%);
+}
+
+.slider-arrow.right {
+    right: 0;
+    background: linear-gradient(to left, rgba(0, 0, 0, 0.9) 0%, transparent 100%);
+}
+
+/* --- CONTENEDORES --- */
+.main-container {
+    padding: 0 4%;
+    margin-top: -80px;
+    position: relative;
+    z-index: 10;
+}
+
+.row {
+    margin-bottom: 45px;
+}
+
+.row-content {
+    position: relative;
+    /* Indispensable para las flechas */
+    display: flex;
+    align-items: center;
+    width: 100%;
+}
+
+.row-posters {
+    display: flex;
+    overflow-x: auto;
+    overflow-y: hidden;
+    padding: 30px 0;
+    /* Más aire para el zoom */
+    gap: 12px;
+    scroll-behavior: smooth;
+    scrollbar-width: none;
+}
+
+.row-posters::-webkit-scrollbar {
+    display: none;
+}
+
+/* --- TOP 10 --- */
+.top-card {
+    flex: 0 0 auto !important;
+    display: flex !important;
+    align-items: center;
+}
+
+.rank-number {
+    font-size: 18rem;
+    font-weight: 900;
+    color: #000;
+    -webkit-text-stroke: 4px #595959;
+    margin-right: -45px;
+    z-index: 1;
+    line-height: 0.8;
+}
+
+.top-card img {
+    width: 220px !important;
+    height: 330px !important;
+    z-index: 2;
+    box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.5);
+}
+
+/* --- CORRECCIÓN FINAL: TOP 10 ANCHO Y SIN RECORTES --- */
+
+/* 1. Forzamos al contenedor de la tarjeta a ser mucho más ancho */
+#saga-top .top-card {
+    flex: 0 0 450px !important;
+    /* Ancho total suficiente para número + foto ancha */
+    width: 450px !important;
+    height: 350px !important;
+    /* Altura ajustada para fotos más horizontales */
+    display: flex !important;
+    align-items: center !important;
+    justify-content: flex-start !important;
+    margin-right: 20px !important;
+    overflow: visible !important;
+    background: transparent !important;
+
+}
+
+/* 2. La imagen ahora es ancha para que no parezca una tira vertical */
+#saga-top .top-card img {
+    width: 320px !important;
+    /* Ancho real de la foto */
+    height: 100% !important;
+    /* Ocupa toda la altura del contenedor */
+    object-fit: cover !important;
+    flex-shrink: 0 !important;
+    border-radius: 8px;
+    z-index: 2;
+    box-shadow: 10px 0 20px rgba(0, 0, 0, 0.5);
+    position: relative;
+    transition: transform 0.3s ease, width 0.6s ease;
+}
+
+/* 3. Reducimos los números para que no se "coman" la pantalla */
+#saga-top .rank-number {
+    font-size: 15rem !important;
+    /* Tamaño más equilibrado */
+    font-weight: 900;
+    color: #000;
+    -webkit-text-stroke: 3px #595959;
+    margin-right: -40px !important;
+    /* Menos solapamiento con la foto */
+    z-index: 1;
+    line-height: 1;
+    position: relative;
+    user-select: none;
+    flex-shrink: 0 !important;
+}
+
+/* Efecto hover corregido para el nuevo tamaño */
+#saga-top .top-card:hover img {
+    transform: scale(1.05);
+    transition: transform 0.3s ease;
+}
+
+#saga-top .top-card:hover .rank-number {
+    -webkit-text-stroke: 3px var(--netflix-red);
+}
+
+/* Cuando pasas el mouse sobre la card, la imagen crece (esto ya lo tenías) */
+#saga-top .top-card:hover img {
+    transform: scale(1.05);
+}
+
+/* --- LO NUEVO: Hacemos que el degradado crezca IGUAL que la imagen --- */
+#saga-top .top-card:hover .card-description-overlay {
+    /* Aplicamos el mismo escalado que a la imagen */
+    transform: scale(1.05);
+    /* Aseguramos que crezca desde el centro para coincidir con la imagen */
+    transform-origin: center center;
+    /* La misma velocidad de transición para que se muevan juntos */
+    transition: transform 0.3s ease, opacity 0.4s ease;
+}
+
+#saga-top .card-description-overlay {
+    /* Combinamos la transición de opacidad (para cuando aparece la card)
+       con la de transformación (para el zoom del mouse) */
+    transition: opacity 0.4s ease, transform 0.3s ease !important;
+    transform-origin: center center !important;
+    /* Asegura que crezca desde el centro */
+}
+
+/* --- BOTÓN DE REPRODUCCIÓN ESTILO NETFLIX --- */
+.btn-play {
+    background-color: var(--netflix-red);
+    /* Usamos tu variable de rojo Netflix */
+    color: white;
+    border: none;
+    padding: 12px 30px;
+    /* Más grande y fácil de clickear */
+    font-size: 1.2rem;
+    font-weight: 700;
+    /* Texto más grueso */
+    border-radius: 4px;
+    /* Bordes suaves como en Netflix */
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    /* Espacio entre el ícono y el texto */
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
+    /* Sombra sutil para dar profundidad */
+    transition: all 0.3s ease;
+    /* Transición suave para el hover */
+}
+
+/* Efecto al pasar el mouse */
+.btn-play:hover {
+    background-color: #c10811;
+    /* Un rojo un poco más oscuro */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.6);
+    /* Sombra más pronunciada */
+    transform: translateY(-2px);
+    /* Pequeño efecto de elevación */
+}
+
+/* Ajuste para el ícono dentro del botón */
+.btn-play i {
+    font-size: 1.4rem;
+}
