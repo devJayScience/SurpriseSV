@@ -16,8 +16,11 @@ function createHeart() {
     heartWrapper.style.left = Math.random() * 95 + '%';
     const randomSize = Math.random() * (1.5 - 0.8) + 0.8;
     heartInner.style.fontSize = (24 * randomSize) + 'px';
+
+    // Configuramos la duración y nos aseguramos que el nombre de la animación esté presente
     const duration = Math.random() * (5 - 3) + 3;
     heartWrapper.style.animationDuration = duration + 's';
+    heartWrapper.style.animationName = 'fall'; // Refuerzo por JS
 
     heartWrapper.addEventListener('click', () => catchHeart(heartWrapper));
     heartContainer.appendChild(heartWrapper);

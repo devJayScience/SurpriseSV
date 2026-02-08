@@ -5,7 +5,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Skyflix - El Estreno de tu Vida</title>
+
+    <meta property="og:title" content="Skyflix - Un Estreno Original">
+    <meta property="og:description" content="Dime si vas a volver... o si el 14 te veo.">
+    <meta name="theme-color" content="#E50914">
+
     <link rel="stylesheet" href="style/index.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Montserrat:wght@300;700&display=swap"
         rel="stylesheet">
 </head>
@@ -13,41 +21,43 @@
 <body>
     <div class="stars"></div>
 
-    <div class="countdown-container">
-        <div class="heart-icon">❤️</div>
+    <main class="countdown-container">
+        <div class="heart-icon" aria-hidden="true">❤️</div>
 
         <h1 class="logo">SKY<span>FLIX</span></h1>
 
-        <p class="teaser">
-            "Dime si vas a volver... o si el 14 te veo" <br>
-            <span>Un estreno original para Maricielo</span>
-        </p>
+        <header class="teaser">
+            <p>"Dime si vas a volver... o si el 14 te veo"</p>
+            <span>Un estreno original para <strong>Maricielo</strong></span>
+        </header>
 
-        <div id="timer">
+        <section id="timer" aria-label="Cuenta regresiva">
             <div class="time-box"><span id="days">00</span><small>Días</small></div>
             <div class="time-box"><span id="hours">00</span><small>Horas</small></div>
             <div class="time-box"><span id="minutes">00</span><small>Min</small></div>
             <div class="time-box"><span id="seconds">00</span><small>Seg</small></div>
-        </div>
+        </section>
 
         <div id="unlock-zone" class="hidden">
             <button onclick="entrarAlJuego()" class="btn-play">▶ EMPEZAR FUNCIÓN</button>
             <p class="nota-audio">Sube el volumen, Benito tiene algo que decirte...</p>
         </div>
-    </div>
+    </main>
 
-    <div id="modal-benito" class="modal-overlay hidden">
+    <div id="modal-benito" class="modal-overlay hidden" role="dialog" aria-labelledby="modal-title">
         <div class="modal-content">
             <div class="modal-header">
                 <span class="heart-emoji">❤️</span>
             </div>
-            <h2>¡Ey, tranquila reyna!</h2>
+            <h2 id="modal-title">¡Ey, tranquila reina!</h2>
             <p id="modal-message">
                 "Benito dice que lo bueno se hace esperar. <br>
                 Todavía no es el momento de abrir este regalo, pero la espera valdrá la pena."
             </p>
             <button onclick="cerrarModal()" class="btn-close">Entiendo, Conejo Malo</button>
-            <p class="footer-modal">Skyflix Original © 2026</p>
+            <footer class="footer-modal">
+                <p>Skyflix Original © 2026</p>
+            </footer>
         </div>
     </div>
 

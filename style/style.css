@@ -1,48 +1,39 @@
-@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@400;700&display=swap');
+/* Importamos las fuentes oficiales de Skyflix */
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Montserrat:wght@300;700&display=swap');
 
 body {
     margin: 0;
     padding: 0;
-    background-color: #ffe6eb;
-    font-family: 'Quicksand', sans-serif;
-    color: #ae4e68;
+    /* El degradado Sunset de la imagen 3 */
+    background: linear-gradient(135deg, #0f0c29, #302b63, #24243e);
+    font-family: 'Montserrat', sans-serif;
+    color: white;
     overflow: hidden;
     height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
+    position: relative;
+    /* Necesario para el fondo estrellado */
 }
 
-.game-container {
-    text-align: center;
-    z-index: 10;
-    pointer-events: auto;
-    /* IMPORTANTE: Ahora permite clics */
-    background: rgba(255, 255, 255, 0.8);
-    padding: 2rem;
-    border-radius: 20px;
-    box-shadow: 0 8px 32px rgba(255, 105, 180, 0.2);
-    backdrop-filter: blur(5px);
-    transition: all 0.5s ease;
-}
-
-.progress-bar-container {
-    width: 200px;
-    height: 15px;
-    background-color: #ffd1dc;
-    border-radius: 10px;
-    margin: 15px auto;
-    overflow: hidden;
-}
-
-.progress-bar {
-    width: 0%;
+/* Efecto de estrellas de fondo para dar profundidad */
+body::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
     height: 100%;
-    background-color: #ff6b95;
-    transition: width 0.3s ease;
+    background: url('https://www.transparenttextures.com/patterns/stardust.png');
+    opacity: 0.4;
+    pointer-events: none;
+    z-index: 0;
+    /* Asegura que esté detrás de todo */
 }
 
+/* Contenedor para los corazones que caen (¡Esto faltaba!) */
 #heart-container {
     position: absolute;
     top: 0;
@@ -50,76 +41,168 @@ body {
     width: 100%;
     height: 100%;
     pointer-events: none;
+    /* Permite que los clics pasen a través */
+    z-index: 5;
+    /* Detrás de la tarjeta del juego */
+    overflow: hidden;
 }
 
+/* Busca esta parte en tu archivo style.css y déjala así: */
+/* Busca esto en tu CSS y asegúrate de que tenga estas propiedades */
 .heart-wrapper {
     position: absolute;
-    top: 0;
+    top: -50px;
     pointer-events: auto;
-    animation: fall linear forwards;
     cursor: pointer;
+    will-change: transform;
+
+    /* --- ESTO ES IMPORTANTE --- */
+    /* Definimos la animación aquí para poder pausarla luego */
+    animation-name: fall;
+    animation-timing-function: linear;
+    animation-fill-mode: forwards;
+    /* Añadimos suavidad para cuando el mouse entra o sale */
+    transition: all 0.2s ease-out;
 }
 
-.heart-wrapper:hover {
-    animation-play-state: paused;
-    z-index: 100;
-}
-
+/* El corazón en sí, con estilo neón */
 .heart-inner::before {
     content: '❤️';
     display: block;
+    font-size: 2.5rem;
+    /* Un poco más grandes */
+    filter: drop-shadow(0 0 15px #ff2e63);
+    /* Brillo neón intenso */
+    transition: transform 0.2s;
 }
 
-@keyframes fall {
-    0% {
-        transform: translateY(-50px);
-        opacity: 0;
-    }
-
-    10% {
-        opacity: 1;
-    }
-
-    100% {
-        transform: translateY(110vh);
-        opacity: 1;
-    }
+/* --- AÑADE ESTA REGLA NUEVA --- */
+.heart-wrapper:hover {
+    /* ¡Magia! Esto congela al corazón en el aire */
+    animation-play-state: paused;
+    /* Opcional: Lo traemos al frente por si se cruza con otro */
+    z-index: 50;
 }
 
-/* Estilos de botones finales */
-.btn-si {
-    background-color: #ff4d79;
-    color: white;
-    border: none;
-    padding: 8px 16px;
-    border-radius: 50px;
-    font-size: 1rem;
-    cursor: pointer;
-    font-weight: bold;
-    transition: transform 0.3s ease;
-    box-shadow: 0 5px 15px rgba(233, 30, 99, 0.4);
+/* Efecto al pasar el mouse por un corazón */
+.heart-wrapper:hover .heart-inner::before {
+    /* Cambiamos 1.2 por 1.35 para que se note más el "pop" */
+    transform: scale(1.35);
+    /* Intensificamos el brillo neón al tocarlo */
+    filter: drop-shadow(0 0 25px #ff0548);
 }
 
-.btn-no {
-    background-color: #9e9e9e;
-    color: white;
-    border: none;
-    padding: 8px 16px;
-    border-radius: 50px;
-    font-size: 1rem;
-    cursor: pointer;
-    font-weight: bold;
-    transition: all 0.2s ease;
-}
-
-.game-container.won {
-    width: 90%;
-    max-width: 800px;
+/* Contenedor del Juego con Glassmorphism (Efecto Cristal) */
+.game-container {
+    text-align: center;
+    z-index: 10;
+    pointer-events: auto;
+    background: rgba(255, 255, 255, 0.07);
+    /* Cristal traslúcido */
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
     padding: 3rem;
-    transition: all 0.5s ease;
+    border-radius: 25px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    /* Brillo neón perimetral */
+    box-shadow: 0 0 40px rgba(255, 46, 99, 0.2), inset 0 0 10px rgba(255, 255, 255, 0.1);
+    max-width: 450px;
+    width: 90%;
+    transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    position: relative;
+    /* Para que el z-index funcione bien */
 }
 
-/* Fireworks */
+.game-container h1,
+.game-container h2 {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 2.5rem;
+    letter-spacing: 2px;
+    margin-bottom: 10px;
+    text-shadow: 0 0 10px rgba(255, 46, 99, 0.8);
+}
+
+.game-container p {
+    font-weight: 300;
+    color: #cfcfcf;
+    margin-bottom: 20px;
+}
+
+/* Barra de progreso Neón */
+.progress-bar-container {
+    width: 100%;
+    height: 12px;
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 50px;
+    margin: 20px auto;
+    overflow: hidden;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.progress-bar {
+    width: 0%;
+    height: 100%;
+    background: linear-gradient(90deg, #e50914, #ff2e63);
+    box-shadow: 0 0 15px #ff2e63;
+    transition: width 0.4s ease;
+}
+
+/* Botones con estilo Skyflix / Bad Bunny */
+.btn-si {
+    background: linear-gradient(90deg, #e50914, #ff2e63);
+    color: white;
+    border: none;
+    padding: 12px 35px;
+    border-radius: 50px;
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 1.4rem;
+    letter-spacing: 1px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 0 20px rgba(229, 9, 20, 0.5);
+    margin: 10px;
+}
+
+.btn-si:hover {
+    transform: scale(1.1);
+    box-shadow: 0 0 30px rgba(255, 46, 99, 0.8);
+}
+
+/* Reemplaza tu clase .btn-no con esta versión mejorada */
+.btn-no {
+    background: rgba(255, 255, 255, 0.25);
+    /* Fondo más sólido para que no se camufle */
+    color: #ffffff;
+    /* Texto blanco puro para máximo contraste */
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    /* Borde más definido */
+    padding: 10px 25px;
+    border-radius: 50px;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.9rem;
+    font-weight: 700;
+    /* Texto en negrita para que se lea mejor */
+    cursor: pointer;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(5px);
+    /* Refuerza el efecto de cristal */
+}
+
+/* Efecto opcional para que se vea más activo al acercarse */
+.btn-no:hover {
+    background: rgba(255, 255, 255, 0.4);
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.2);
+}
+
+/* Ajuste para la imagen de los ositos */
+.game-container img {
+    max-width: 100%;
+    border-radius: 15px;
+    margin-bottom: 15px;
+    border: 2px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Animación de los fuegos artificiales (partículas) */
 .firework-particle {
     position: absolute;
     width: 6px;
@@ -127,7 +210,7 @@ body {
     border-radius: 50%;
     pointer-events: none;
     z-index: 10001;
-    /* Above everything */
+    box-shadow: 0 0 10px currentColor;
 }
 
 @keyframes explode {
@@ -139,5 +222,20 @@ body {
     100% {
         transform: translate(var(--tx), var(--ty)) scale(0);
         opacity: 0;
+    }
+}
+
+/* ANIMACIÓN DE CAÍDA (La pieza clave que faltaba) */
+@keyframes fall {
+    0% {
+        transform: translateY(0) rotate(0deg);
+        opacity: 1;
+    }
+
+    100% {
+        transform: translateY(110vh) rotate(360deg);
+        /* Caen y rotan */
+        opacity: 0;
+        /* Se desvanecen al final */
     }
 }
