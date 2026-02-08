@@ -4,26 +4,54 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>¡Atrapa los corazones!</title>
-    <link rel="stylesheet" href="style/style.css">
+    <title>Skyflix - El Estreno de tu Vida</title>
+    <link rel="stylesheet" href="style/index.css">
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Montserrat:wght@300;700&display=swap"
+        rel="stylesheet">
 </head>
 
 <body>
-    <div class="game-container">
-        <h1>¡Atrapa los corazones! ❤️</h1>
-        <p>Debes atrapar 10 corazones para ver la sorpresa.</p>
+    <div class="stars"></div>
 
-        <div class="progress-bar-container">
-            <div id="progress-bar" class="progress-bar"></div>
+    <div class="countdown-container">
+        <div class="heart-icon">❤️</div>
+
+        <h1 class="logo">SKY<span>FLIX</span></h1>
+
+        <p class="teaser">
+            "Dime si vas a volver... o si el 14 te veo" <br>
+            <span>Un estreno original para Maricielo</span>
+        </p>
+
+        <div id="timer">
+            <div class="time-box"><span id="days">00</span><small>Días</small></div>
+            <div class="time-box"><span id="hours">00</span><small>Horas</small></div>
+            <div class="time-box"><span id="minutes">00</span><small>Min</small></div>
+            <div class="time-box"><span id="seconds">00</span><small>Seg</small></div>
         </div>
 
-        <p>Corazones atrapados: <span id="score">0</span>/10</p>
+        <div id="unlock-zone" class="hidden">
+            <button onclick="entrarAlJuego()" class="btn-play">▶ EMPEZAR FUNCIÓN</button>
+            <p class="nota-audio">Sube el volumen, Benito tiene algo que decirte...</p>
+        </div>
     </div>
 
-    <!-- Container for falling hearts -->
-    <div id="heart-container"></div>
+    <div id="modal-benito" class="modal-overlay hidden">
+        <div class="modal-content">
+            <div class="modal-header">
+                <span class="heart-emoji">❤️</span>
+            </div>
+            <h2>¡Ey, tranquila reyna!</h2>
+            <p id="modal-message">
+                "Benito dice que lo bueno se hace esperar. <br>
+                Todavía no es el momento de abrir este regalo, pero la espera valdrá la pena."
+            </p>
+            <button onclick="cerrarModal()" class="btn-close">Entiendo, Conejo Malo</button>
+            <p class="footer-modal">Skyflix Original © 2026</p>
+        </div>
+    </div>
 
-    <script src="script/script.js"></script>
+    <script src="script/index.js"></script>
 </body>
 
 </html>
