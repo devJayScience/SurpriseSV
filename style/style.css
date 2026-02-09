@@ -1,10 +1,13 @@
-/* Importamos las fuentes oficiales de Skyflix */
+/* 1. IMPORTACIÓN Y GLOBALES */
 @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Montserrat:wght@300;700&display=swap');
 
-body {
+* {
+    box-sizing: border-box;
     margin: 0;
     padding: 0;
-    /* El degradado Sunset de la imagen 3 */
+}
+
+body {
     background: linear-gradient(135deg, #0f0c29, #302b63, #24243e);
     font-family: 'Montserrat', sans-serif;
     color: white;
@@ -15,10 +18,9 @@ body {
     align-items: center;
     flex-direction: column;
     position: relative;
-    /* Necesario para el fondo estrellado */
 }
 
-/* Efecto de estrellas de fondo para dar profundidad */
+/* Efecto de estrellas */
 body::before {
     content: "";
     position: absolute;
@@ -29,11 +31,10 @@ body::before {
     background: url('https://www.transparenttextures.com/patterns/stardust.png');
     opacity: 0.4;
     pointer-events: none;
-    z-index: 0;
-    /* Asegura que esté detrás de todo */
+    z-index: 1;
 }
 
-/* Contenedor para los corazones que caen (¡Esto faltaba!) */
+/* 2. CONTENEDORES PRINCIPALES */
 #heart-container {
     position: absolute;
     top: 0;
@@ -41,102 +42,74 @@ body::before {
     width: 100%;
     height: 100%;
     pointer-events: none;
-    /* Permite que los clics pasen a través */
-    z-index: 5;
-    /* Detrás de la tarjeta del juego */
+    z-index: 2;
+    /* Por encima del fondo, debajo de la UI */
     overflow: hidden;
 }
 
-/* Busca esta parte en tu archivo style.css y déjala así: */
-/* Busca esto en tu CSS y asegúrate de que tenga estas propiedades */
+.game-container {
+    text-align: center;
+    z-index: 10;
+    pointer-events: auto;
+    background: rgba(255, 255, 255, 0.07);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    padding: 2.5rem;
+    border-radius: 25px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 0 0 40px rgba(255, 46, 99, 0.2);
+    max-width: 450px;
+    width: 90%;
+    transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+/* 3. ELEMENTOS DEL JUEGO (CORAZONES) */
 .heart-wrapper {
     position: absolute;
     top: -50px;
     pointer-events: auto;
     cursor: pointer;
     will-change: transform;
-
-    /* --- ESTO ES IMPORTANTE --- */
-    /* Definimos la animación aquí para poder pausarla luego */
     animation-name: fall;
     animation-timing-function: linear;
     animation-fill-mode: forwards;
-    /* Añadimos suavidad para cuando el mouse entra o sale */
-    transition: all 0.2s ease-out;
+    transition: transform 0.2s ease-out;
+    z-index: 15;
+    /* Asegura que se puedan clickear sobre otros elementos si es necesario */
 }
 
-/* El corazón en sí, con estilo neón */
 .heart-inner::before {
     content: '❤️';
     display: block;
     font-size: 2.5rem;
-    /* Un poco más grandes */
-    filter: drop-shadow(0 0 15px #ff2e63);
-    /* Brillo neón intenso */
+    filter: drop-shadow(0 0 10px #ff2e63);
     transition: transform 0.2s;
 }
 
-/* --- AÑADE ESTA REGLA NUEVA --- */
 .heart-wrapper:hover {
-    /* ¡Magia! Esto congela al corazón en el aire */
     animation-play-state: paused;
-    /* Opcional: Lo traemos al frente por si se cruza con otro */
-    z-index: 50;
 }
 
-/* Efecto al pasar el mouse por un corazón */
 .heart-wrapper:hover .heart-inner::before {
-    /* Cambiamos 1.2 por 1.35 para que se note más el "pop" */
     transform: scale(1.35);
-    /* Intensificamos el brillo neón al tocarlo */
-    filter: drop-shadow(0 0 25px #ff0548);
+    filter: drop-shadow(0 0 20px #ff0548);
 }
 
-/* Contenedor del Juego con Glassmorphism (Efecto Cristal) */
-.game-container {
-    text-align: center;
-    z-index: 10;
-    pointer-events: auto;
-    background: rgba(255, 255, 255, 0.07);
-    /* Cristal traslúcido */
-    backdrop-filter: blur(15px);
-    -webkit-backdrop-filter: blur(15px);
-    padding: 3rem;
-    border-radius: 25px;
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    /* Brillo neón perimetral */
-    box-shadow: 0 0 40px rgba(255, 46, 99, 0.2), inset 0 0 10px rgba(255, 255, 255, 0.1);
-    max-width: 450px;
-    width: 90%;
-    transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-    position: relative;
-    /* Para que el z-index funcione bien */
-}
-
-.game-container h1,
-.game-container h2 {
+/* 4. UI Y BOTONES */
+.game-container h1 {
     font-family: 'Bebas Neue', sans-serif;
     font-size: 2.5rem;
-    letter-spacing: 2px;
-    margin-bottom: 10px;
-    text-shadow: 0 0 10px rgba(255, 46, 99, 0.8);
+    color: #e91e63;
+    text-shadow: 0 0 15px rgba(233, 30, 99, 0.5);
 }
 
-.game-container p {
-    font-weight: 300;
-    color: #cfcfcf;
-    margin-bottom: 20px;
-}
-
-/* Barra de progreso Neón */
 .progress-bar-container {
     width: 100%;
     height: 12px;
-    background-color: rgba(255, 255, 255, 0.1);
+    background: rgba(255, 255, 255, 0.1);
     border-radius: 50px;
-    margin: 20px auto;
+    margin: 20px 0;
     overflow: hidden;
-    border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .progress-bar {
@@ -144,10 +117,9 @@ body::before {
     height: 100%;
     background: linear-gradient(90deg, #e50914, #ff2e63);
     box-shadow: 0 0 15px #ff2e63;
-    transition: width 0.4s ease;
+    transition: width 0.3s ease;
 }
 
-/* Botones con estilo Skyflix / Bad Bunny */
 .btn-si {
     background: linear-gradient(90deg, #e50914, #ff2e63);
     color: white;
@@ -156,61 +128,78 @@ body::before {
     border-radius: 50px;
     font-family: 'Bebas Neue', sans-serif;
     font-size: 1.4rem;
-    letter-spacing: 1px;
     cursor: pointer;
-    transition: all 0.3s ease;
-    box-shadow: 0 0 20px rgba(229, 9, 20, 0.5);
-    margin: 10px;
+    box-shadow: 0 5px 15px rgba(229, 9, 20, 0.4);
 }
 
-.btn-si:hover {
-    transform: scale(1.1);
-    box-shadow: 0 0 30px rgba(255, 46, 99, 0.8);
-}
-
-/* Reemplaza tu clase .btn-no con esta versión mejorada */
 .btn-no {
-    background: rgba(255, 255, 255, 0.25);
-    /* Fondo más sólido para que no se camufle */
-    color: #ffffff;
-    /* Texto blanco puro para máximo contraste */
-    border: 1px solid rgba(255, 255, 255, 0.5);
-    /* Borde más definido */
+    background: rgba(255, 255, 255, 0.2);
+    color: white;
+    border: 1px solid rgba(255, 255, 255, 0.4);
     padding: 10px 25px;
     border-radius: 50px;
     font-family: 'Montserrat', sans-serif;
-    font-size: 0.9rem;
     font-weight: 700;
-    /* Texto en negrita para que se lea mejor */
+    cursor: pointer;
+    backdrop-filter: blur(5px);
+}
+
+/* 5. CONTROL DE MÚSICA (Benito Style) */
+.music-control {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 1000;
+}
+
+.btn-benito {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    color: white;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    padding: 10px 20px;
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 1.1rem;
+    letter-spacing: 1px;
+    border-radius: 50px;
     cursor: pointer;
     transition: all 0.3s ease;
-    backdrop-filter: blur(5px);
-    /* Refuerza el efecto de cristal */
 }
 
-/* Efecto opcional para que se vea más activo al acercarse */
-.btn-no:hover {
-    background: rgba(255, 255, 255, 0.4);
-    box-shadow: 0 0 15px rgba(255, 255, 255, 0.2);
+/* Vibración cuando la música suena */
+.btn-benito.playing {
+    background: rgba(233, 30, 99, 0.4);
+    border-color: #e91e63;
+    animation: musicPulse 1.5s infinite;
 }
 
-/* Ajuste para la imagen de los ositos */
-.game-container img {
-    max-width: 100%;
-    border-radius: 15px;
-    margin-bottom: 15px;
-    border: 2px solid rgba(255, 255, 255, 0.1);
+/* 6. ANIMACIONES */
+@keyframes fall {
+    0% {
+        transform: translateY(0) rotate(0deg);
+        opacity: 1;
+    }
+
+    100% {
+        transform: translateY(110vh) rotate(360deg);
+        opacity: 0;
+    }
 }
 
-/* Animación de los fuegos artificiales (partículas) */
-.firework-particle {
-    position: absolute;
-    width: 6px;
-    height: 6px;
-    border-radius: 50%;
-    pointer-events: none;
-    z-index: 10001;
-    box-shadow: 0 0 10px currentColor;
+@keyframes musicPulse {
+    0% {
+        transform: scale(1);
+        box-shadow: 0 0 0 0 rgba(233, 30, 99, 0.7);
+    }
+
+    70% {
+        transform: scale(1.05);
+        box-shadow: 0 0 0 10px rgba(233, 30, 99, 0);
+    }
+
+    100% {
+        transform: scale(1);
+    }
 }
 
 @keyframes explode {
@@ -222,20 +211,5 @@ body::before {
     100% {
         transform: translate(var(--tx), var(--ty)) scale(0);
         opacity: 0;
-    }
-}
-
-/* ANIMACIÓN DE CAÍDA (La pieza clave que faltaba) */
-@keyframes fall {
-    0% {
-        transform: translateY(0) rotate(0deg);
-        opacity: 1;
-    }
-
-    100% {
-        transform: translateY(110vh) rotate(360deg);
-        /* Caen y rotan */
-        opacity: 0;
-        /* Se desvanecen al final */
     }
 }

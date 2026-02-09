@@ -200,3 +200,21 @@ function winGame() {
 }
 
 setInterval(createHeart, 300);
+
+// Lógica de la música
+const btnMusica = document.getElementById('btn-musica');
+const musica = document.getElementById('bg-music');
+
+btnMusica.addEventListener('click', () => {
+    if (musica.paused) {
+        musica.play();
+        btnMusica.innerHTML = "🤫 CALLAITA";
+        btnMusica.classList.add('playing');
+    } else {
+        musica.pause();
+        btnMusica.innerHTML = "🐰 PON EL FLOW";
+        btnMusica.classList.remove('playing');
+    }
+});
+
+// ... aquí sigue el resto de tu código original (heartContainer, score, etc.)
