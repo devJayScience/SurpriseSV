@@ -66,3 +66,20 @@ window.onclick = function (event) {
         cerrarModal();
     }
 }
+
+const btnMusica = document.getElementById('btn-musica');
+const musica = document.getElementById('bg-music');
+
+btnMusica.addEventListener('click', () => {
+    if (musica.paused) {
+        musica.play();
+        // Cambiamos el texto y la clase visual
+        btnMusica.innerHTML = "🤫 CALLAITA PA' QUE NO SE ENTEREN";
+        btnMusica.classList.add('playing');
+    } else {
+        musica.pause();
+        // Revertimos el texto y la clase visual
+        btnMusica.innerHTML = "🐰 PONER EL FLOW DE BENITO";
+        btnMusica.classList.remove('playing');
+    }
+});
